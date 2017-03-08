@@ -42,7 +42,7 @@ def configure
       # Create the owner of the redis data directory
       user current['user'] do
         comment 'Redis service account'
-        supports manage_home: true
+        manage_home true
         home current['homedir']
         shell current['shell']
         system current['systemuser']
@@ -151,6 +151,7 @@ def configure
           name:              current['name'],
           piddir:            piddir,
           job_control:       node['redisio']['job_control'],
+          sentinel_bind:     current['sentinel_bind'],
           sentinel_port:     current['sentinel_port'],
           loglevel:          current['loglevel'],
           logfile:           current['logfile'],
