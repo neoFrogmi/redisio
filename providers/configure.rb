@@ -103,7 +103,7 @@ def configure
       # Create the owner of the redis data directory
       user current['user'] do
         comment 'Redis service account'
-        manage_home true
+        supports manage_home: true
         home current['homedir']
         shell current['shell']
         system current['systemuser']
